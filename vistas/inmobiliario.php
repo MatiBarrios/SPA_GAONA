@@ -65,30 +65,22 @@
 </head>
 <header>
     <!-- Sidebar -->
-   
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-transparent">
-        <div class="position-static">
+        <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-4 ">
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple bg-transparent" aria-current="true">
-                    <i class="material-icons" style="margin-top:5%;">REEMPLAZAR_1</i><span>Boton 1</span>
+                    <i class="material-icons" style="margin-top:5%;">house</i><span>Catalogo</span>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple bg-transparent">
-                <i class="material-icons"style="margin-top:5%;" >REEMPLAZAR_2</i><span>Boton 2</span>
+                <i class="material-icons"style="margin-top:5%;" >menu</i><span>Lista Propiedades</span>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple bg-transparent">
-                <i class="material-icons"style="margin-top:5%;" >REEMPLAZAR_3</i><span>Boton 3</span>
+                <i class="material-icons" style="margin-top:5%;">add</i><span><span>Nueva propiedad</span>
                 </a>
-               
             </div>
         </div>
     </nav>
-    <div style="left:240px;top:90px; border-style:groove; overflow:auto;position:absolute; width: calc(100% - 240px); height: calc(100vh - 90px); background-color:whitesmoke">
-    
-
-    </div>
-    
     <!-- Sidebar -->
-    
 
     <!-- Navbar -->
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top" style="background: rgb(113,212,232);
@@ -107,20 +99,20 @@ background: linear-gradient(308deg, rgba(113,212,232,0.5049370089832808) 18%, rg
             <!-- Botones -->
             <form class="d-none d-md-flex input-group w-auto my-auto">
 
-                <button type="button" class="btn" data-mdb-ripple-color="#ffffff">&nbsp;<i class="material-icons">replace_1</i>&nbsp;BOTON NAVBAR_1</button>
-                <button type="button" class="btn" data-mdb-ripple-color="#ffffff">&nbsp;<i class="material-icons">replace_2</i>&nbsp;BOTON NAVBAR_2</button>
-                <button type="button" class="btn" data-mdb-ripple-color="#ffffff">&nbsp;<i class="material-icons">replace_3</i>BOTON NAVBAR_3&nbsp;</button>
+                
+                <button type="button" class="btn" data-mdb-ripple-color="#ffffff">&nbsp;<i class="material-icons">calendar_month</i>&nbsp;Agenda</button>
+                <button type="button" class="btn" data-mdb-ripple-color="#ffffff">&nbsp;<i class="material-icons">real_estate_agent</i>Propiedades&nbsp;</button>
 
             </form>
 
             <!-- Right links -->
             <ul class="navbar-nav ms-auto d-flex flex-row">
                 <!-- Avatar -->
-                <span style="margin-top:15px; margin-right:5%;">NOMBRE_EMPLEADO<br>CARGO_EMPLEADO</span>
+                <span style="margin-top:10%; margin-right:0%;">Agente Inmobiliario</span>
                 <li class="nav-item dropdown">
 
                     <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        <img src="https://i.pinimg.com/236x/f8/7d/d6/f87dd68e6660f1f0096effe1e0868ff6--young-thug-humor.jpg" class="rounded-circle" height="60" alt="" loading="lazy" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/69/69889.png" class="rounded-circle" height="60" alt="" loading="lazy" />
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
