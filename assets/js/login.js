@@ -8,4 +8,5 @@ const iniciarSesion = () =>{
     xhr = new XMLHttpRequest();
     xhr.open("POST","./controlador/loginController.php");
     xhr.send(form);
+    xhr.responseType = "json";
 }

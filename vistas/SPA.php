@@ -31,7 +31,9 @@
                 document.getElementById("conteiner").innerHTML = plantilla;
             }
         }
-        const cargarLogin = () =>{    
+        const cargarLogin = () =>{  
+            document.getElementById("conteiner").innerHTML = login;  
+            /*
             var cukie = () => {
                 let name = "empleado" + "=";
                 let decodedCookie = decodeURIComponent(document.cookie);
@@ -50,7 +52,7 @@
             if (cukie() == ""){
                 document.getElementById("conteiner").innerHTML = login;
                 return;
-            }
+            }*/
 
         }
     <?php require_once("./assets/js/login.js"); ?>

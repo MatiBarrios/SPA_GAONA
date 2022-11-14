@@ -12,7 +12,7 @@
                 $consulta = $this->db_connect->prepare("SELECT nombre,apellido,cargo.nombreCargo FROM empleado INNER JOIN cargo on empleado.idCargo= cargo.id WHERE usuario = :usuario
                 AND contrasenia = MD5(:contrasenia)");
                 $consulta->execute(array(":usuario"=>$usuario, ":contrasenia"=>$contrasenia));
-                $resultado = $consulta->fetchAll();
+                $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
                 if(count($resultado) == 0){
                     return false;
