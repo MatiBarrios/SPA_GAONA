@@ -26,5 +26,13 @@ if (isset($_GET['cargo'])){
         //require_once("../vistas/empleados/gerente.html");
     }
 }
-else require_once("./vistas/plantilla_empleado.phtml");
+else if(isset($_GET['cerrar_sesion'])){
+    $opciones = [
+        "expires" => -1,
+        "path" => substr($_SERVER["PHP_SELF"],0,-36),
+        "samesite" => "none"
+    ];
+    setcookie("empleado", "", $opciones);
+}
+else require_once("./vistas/plantilla_empleado.html");
 ?>

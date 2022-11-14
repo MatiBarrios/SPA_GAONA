@@ -1,22 +1,25 @@
 <?php
-if (isset($_COOKIE["empleado"])){
-    print_r("<h1>".$_COOKIE["empleado"]."</h1>");
-}
-else if (isset($_POST['user'])){
+if (isset($_POST['user'])){
     require_once("../modelo/empleado/iniciar_sesion.php");
     $sesion = new IniciarSesion();
     $datos = $sesion->iniciar_sesion($_POST['user'], $_POST['pass']);
+
     if ($datos != false){
-        
-        setcookie("empleado","{\"user\":\"".$_POST["user"]."\", \"contrasenia\":\"".$_POST["pass"]."\"}",time()+3600,substr($_SERVER["PHP_SELF"],0,-9));
-        //print_r("{\"vista\":\"$datos\"}");
-        $cargo = $datos[0];
-        print_r(json_encode($cargo));
-        //print_r("{\"vista\":\"".$cargo['nombreCargo']."\"}");
+        $opciones = [
+            "expires" => time()+3600,
+            "path" => substr($_SERVER["PHP_SELF"],0,-32),
+            "samesite" => "none"
+        ];
+        $datos[0]["usuario"] = $_POST['user'];
+        $datos[0]["contrasenia"] = $_POST['pass'];
+        setcookie("empleado", json_encode($datos[0]), $opciones);
+        echo json_encode($datos[0]);
     }else{
-        print_r("Nombre de usuario y contraseñas errados pete");
+        echo "Nombre de usuario y/o contraseña incorrectos";
     }
 
 }
-else require_once("./vistas/login.html");
+else if (isset($_COOKIE["empleado"])){
+    echo $_COOKIE["empleado"];
+}
 ?>

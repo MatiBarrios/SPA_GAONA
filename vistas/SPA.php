@@ -12,14 +12,14 @@
     </style>
 </head>
 <button onclick="hola()"></button>
-<body onload="cargarLogin()">
+<body onload="procesarJSON(`<?php require_once('./controlador/loginController.php'); ?>`)">
     <div id="conteiner">
 
     </div>
 </body>
 <footer>
     <script>
-        const login = `<?php require_once("./controlador/loginController.php"); ?>`;
+        const panel_login = `<?php require_once("./vistas/login.html") ?>`;
         const plantilla = `<?php require_once("./controlador/ControladorEmpleado.php"); ?>`;
         
         function hola(){
@@ -30,30 +30,6 @@
             xhr.onloadend = ()=>{
                 document.getElementById("conteiner").innerHTML = plantilla;
             }
-        }
-        const cargarLogin = () =>{  
-            document.getElementById("conteiner").innerHTML = login;  
-            /*
-            var cukie = () => {
-                let name = "empleado" + "=";
-                let decodedCookie = decodeURIComponent(document.cookie);
-                let ca = decodedCookie.split(';');
-                for(let i = 0; i <ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                    }
-                    if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                    }
-                }
-                return "";
-            }
-            if (cukie() == ""){
-                document.getElementById("conteiner").innerHTML = login;
-                return;
-            }*/
-
         }
     <?php require_once("./assets/js/login.js"); ?>
     </script>
