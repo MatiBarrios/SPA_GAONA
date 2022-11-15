@@ -14,7 +14,8 @@ if (isset($_POST['user'])){
         $datos[0]["contrasenia"] = $_POST['pass'];
         setcookie("empleado", json_encode($datos[0]), $opciones);
         echo json_encode($datos[0]);
-    }else{
+    }
+    else{
         echo "Nombre de usuario y/o contraseña incorrectos";
     }
 
@@ -22,4 +23,5 @@ if (isset($_POST['user'])){
 else if (isset($_COOKIE["empleado"])){
     echo $_COOKIE["empleado"];
 }
+else require_once("./vistas/login.html");
 ?>

@@ -12,14 +12,14 @@
     </style>
 </head>
 <button onclick="hola()"></button>
-<body onload="procesarJSON(`<?php require_once('./controlador/loginController.php'); ?>`)">
+<body onload="if(sesion != false) iniciarSesion(sesion['usuario'], sesion['contrasenia'])">
     <div id="conteiner">
 
     </div>
 </body>
 <footer>
     <script>
-        const panel_login = `<?php require_once("./vistas/login.html") ?>`;
+        const login = `<?php require_once('./controlador/loginController.php'); ?>`;
         const plantilla = `<?php require_once("./controlador/ControladorEmpleado.php"); ?>`;
         
         function hola(){
