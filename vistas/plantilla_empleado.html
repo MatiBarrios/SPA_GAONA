@@ -69,20 +69,16 @@
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-transparent">
         <div class="position-static">
             <div class="list-group list-group-flush mx-3 mt-4 ">
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple bg-transparent" aria-current="true">
-                    <i class="material-icons" style="margin-top:5%;">REEMPLAZAR_1</i><span>Boton 1</span>
+                <!-- Boton sidebar -->
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple bg-transparent" aria-current="true" onclick='CODIGO_BOTON'>
+                    <i class="material-icons" style="margin-top:5%;">LOGO</i><span>&nbsp;BOTON_SIDEBAR</span>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple bg-transparent">
-                <i class="material-icons"style="margin-top:5%;" >REEMPLAZAR_2</i><span>Boton 2</span>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple bg-transparent">
-                <i class="material-icons"style="margin-top:5%;" >REEMPLAZAR_3</i><span>Boton 3</span>
-                </a>
-               
+                <!-- Boton sidebar -->
             </div>
         </div>
     </nav>
-    <div style="left:240px;top:90px; border-style:groove; overflow:auto;position:absolute; width: calc(100% - 240px); height: calc(100vh - 90px); background-color:whitesmoke">
+    <div id="subcontainer"
+    style="left:240px;top:90px; border-style:groove; overflow:auto;position:absolute; width: calc(100% - 240px); height: calc(100vh - 90px); background-color:whitesmoke">
     
 
     </div>
@@ -106,11 +102,9 @@ background: linear-gradient(308deg, rgba(113,212,232,0.5049370089832808) 18%, rg
             </a>
             <!-- Botones -->
             <form class="d-none d-md-flex input-group w-auto my-auto">
-
-                <button type="button" class="btn" data-mdb-ripple-color="#ffffff">&nbsp;<i class="material-icons">replace_1</i>&nbsp;BOTON NAVBAR_1</button>
-                <button type="button" class="btn" data-mdb-ripple-color="#ffffff">&nbsp;<i class="material-icons">replace_2</i>&nbsp;BOTON NAVBAR_2</button>
-                <button type="button" class="btn" data-mdb-ripple-color="#ffffff">&nbsp;<i class="material-icons">replace_3</i>BOTON NAVBAR_3&nbsp;</button>
-
+                <!-- Boton navbar -->
+                <button type="button" class="btn" onclick='CODIGO_BOTON'>BOTON_NAVBAR</button>
+                <!-- Boton navbar -->
             </form>
 
             <!-- Right links -->
