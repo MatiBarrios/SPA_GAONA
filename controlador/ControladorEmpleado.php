@@ -96,7 +96,7 @@ else if(isset($_GET['cerrar_sesion'])){
     $opciones = [
         "expires" => -1,
         "path" => substr($_SERVER["PHP_SELF"],0,-36),
-        "samesite" => "none"
+        "samesite" => "strict"
     ];
     setcookie("empleado", "", $opciones);
 }

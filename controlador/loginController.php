@@ -8,7 +8,7 @@ if (isset($_POST['user'])){
         $opciones = [
             "expires" => time()+3600,
             "path" => substr($_SERVER["PHP_SELF"],0,-32),
-            "samesite" => "none"
+            "samesite" => "strict"
         ];
         $datos[0]["usuario"] = $_POST['user'];
         $datos[0]["contrasenia"] = $_POST['pass'];
