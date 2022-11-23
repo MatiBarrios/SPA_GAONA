@@ -43,10 +43,18 @@
   var idCita = document.getElementById('citas').value.split('/')[0];
   var fechayHoraCita = document.getElementById('CitaTime').value.replace('T',' ');
   var agente = document.getElementById('agentes').value;
-  alert(idCita+' '+fechayHoraCita+' '+agente);
+  formsito = new FormData();
+  formsito.append('idCita',idCita);
+  formsito.append('fechayHoraCita',fechayHoraCita);
+  formsito.append('agente',agente);
   var xhr = new XMLHttpRequest();
-  
-  console.log('hola');
+  xhr.open('POST','./controlador/ControladorSecretaria.php?agendar_cita');
+  xhr.send(formsito);
+  xhr.onloadend = ()=>{
+    alert(xhr.response);
+    document.querySelector('.Agenda').click();
+    document.querySelector('.Agendar.cita').click();
+  }
   " action="">
     <h3>Cita nuevo cliente</h3>
     <br>
@@ -73,11 +81,11 @@
     <br>
     <h5>3.Seleccione el agente inmobiliario</h5>
     <select class="form-select form-control" id="agentes" required>
-    <option disabled selected> -- seleccione agente -- </option>
+      <option disabled selected> -- seleccione agente -- </option>
       <?php
       foreach ($agentes as $agente) {
       ?>
-        <option value="<?= $agente['id'] ?>" ><?= $agente['nombre'] . ' ' . $agente['apellido'] ?></option>
+        <option value="<?= $agente['id'] ?>"><?= $agente['nombre'] . ' ' . $agente['apellido'] ?></option>
       <?php
       }
       ?>

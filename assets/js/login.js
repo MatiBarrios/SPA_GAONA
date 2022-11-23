@@ -38,30 +38,30 @@ const iniciarSesion = (usuario, contrasenia) =>{
                 navbar = Object.keys(xhr2.response);
 
                 for(var x=0; x<navbar.length; x++){
-                    vista_ver1 += partes_vista[1].replace("BOTON_NAVBAR", navbar[x]).
-                    replace("CODIGO_BOTON", "procesasVista("+JSON.stringify(xhr2.response)+", "+x+", 0)");
+                    vista_ver1 += partes_vista[1].replaceAll("BOTON_NAVBAR", navbar[x]).
+                    replace("CODIGO_BOTON", "procesarVista("+JSON.stringify(xhr2.response)+", "+x+", 0)");
                 }
 
                 vista_ver1 += partes_vista[2];
                 vista_ver1 = vista_ver1.replace("NOMBRE_EMPLEADO", json["nombre"]+" "+json["apellido"]);
                 vista_ver1 = vista_ver1.replace("CARGO_EMPLEADO", json["cargo"]);
                 document.getElementById("conteiner").innerHTML = vista_ver1;
-                procesasVista(xhr2.response, 0, 0);
+                procesarVista(xhr2.response, 0, 0);
             }
         }
     }
 }
 
-const procesasVista = (botones, btn_navbar, btn_sidebar) =>{
+const procesarVista = (botones, btn_navbar, btn_sidebar) =>{
     var partes_vista = vista_ver1.split("<!-- Boton sidebar -->");
     var vista = partes_vista[0];
     navbar = Object.keys(botones);
     sidebar = Object.keys(botones[navbar[btn_navbar]]);
 
     for(var x=0; x<sidebar.length; x++){
-        vista += partes_vista[1].replace("BOTON_SIDEBAR", sidebar[x]).
+        vista += partes_vista[1].replaceAll("BOTON_SIDEBAR", sidebar[x]).
         replace("LOGO", botones[navbar[btn_navbar]][sidebar[x]][1]).
-        replace("CODIGO_BOTON", "procesasVista("+JSON.stringify(botones)+", "+btn_navbar+", "+x+")");
+        replace("CODIGO_BOTON", "procesarVista("+JSON.stringify(botones)+", "+btn_navbar+", "+x+")");
     }
 
     vista += partes_vista[2];

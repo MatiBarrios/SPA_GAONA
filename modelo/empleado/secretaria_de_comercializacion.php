@@ -10,7 +10,7 @@
         function registrar_cliente_particular(int $dni, int $cuil, int $telefono, string $correo,
         string $nombre, string $apellido, DateTime $fecha_nacimiento){
             try{
-                $consulta = $this->db_connect->prerare("CALL registrar_cliente_particular(:dni, :cuil,
+                $consulta = $this->db_connect->prepare("CALL registrar_cliente_particular(:dni, :cuil,
                 :telefono, :correo, :nombre, :apellido, :fecha_nacimiento)");
                 $consulta->execute(array(":dni"=>$dni, ":cuil"=>$cuil, ":telefono"=>$telefono,
                 ":correo"=>$correo, ":nombre"=>$nombre, ":apellido"=>$apellido,
@@ -25,7 +25,7 @@
         function registrar_cliente_corporativo(int $dni, int $cuit, int $telefono, string $correo,
         string $razon_social, string $propietarios, string $dir_administracion, int $id_agente){
             try{
-                $consulta = $this->db_connect->prerare("CALL registrar_cliente_corporativo(:dni, :cuit,
+                $consulta = $this->db_connect->prepare("CALL registrar_cliente_corporativo(:dni, :cuit,
                 :telefono, :correo, :razon_social, :propietarios, :dir_administracion, :id_agente)");
                 $consulta->execute(array(":dni"=>$dni, ":cuit"=>$cuit, ":telefono"=>$telefono,
                 ":correo"=>$correo, ":razon_social"=>$razon_social, ":propietarios"=>$propietarios,
@@ -39,7 +39,7 @@
 
         function editar_cliente_particular(int $cod_cliente, int $cuil, int $telefono, string $correo){
             try{
-                $consulta = $this->db_connect->prerare("CALL registrar_cliente_particular(:cod_cliente, :cuil,
+                $consulta = $this->db_connect->prepare("CALL registrar_cliente_particular(:cod_cliente, :cuil,
                 :telefono, :correo)");
                 $consulta->execute(array(":cod_cliente"=>$cod_cliente, ":cuil"=>$cuil,
                 ":telefono"=>$telefono, ":correo"=>$correo));
@@ -52,7 +52,7 @@
         function editar_cliente_corporativo(int $cod_cliente, int $cuit, int $telefono, string $correo,
         string $razon_social, string $propietarios, string $dir_administracion, int $id_agente){
             try{
-                $consulta = $this->db_connect->prerare("CALL editar_cliente_corporativo(:cod_cliente, :cuit,
+                $consulta = $this->db_connect->prepare("CALL editar_cliente_corporativo(:cod_cliente, :cuit,
                 :telefono, :correo, :razon_social, :propietarios, :dir_administracion, :id_agente)");
                 $consulta->execute(array(":cod_cliente"=>$cod_cliente, ":cuit"=>$cuit,
                 ":telefono"=>$telefono, ":correo"=>$correo, ":razon_social"=>$razon_social,
@@ -102,7 +102,7 @@
 
         public function editar_cita(DateTime $fecha_y_hora, int $id_agente, int $id_cita){
             try{
-                $consulta = $this->db_connect->prerare("UPDATE cita idAgente = :id_agente,
+                $consulta = $this->db_connect->prepare("UPDATE cita idAgente = :id_agente,
                 fechaYHoraCita = :fecha_y_hora WHERE id = :id_cita");
                 $consulta->execute(array(":id_agente"=>$id_agente, ":fecha_y_hora"=>$fecha_y_hora,
                 ":id_cita"=>$id_cita));
@@ -114,7 +114,7 @@
 
         public function cancelar_cita(int $id_cita){
             try{
-                $consulta = $this->db_connect->prerare("UPDATE cita aceptada = FALSE WHERE id = :id_cita");
+                $consulta = $this->db_connect->prepare("UPDATE cita aceptada = FALSE WHERE id = :id_cita");
                 $consulta->execute(array(":id_cita"=>$id_cita));
             }
             catch(Exception $e){
@@ -122,12 +122,12 @@
             }
         }
 
-        public function asignar_cita_agente(int $id_cita, int $id_agente, DateTime $fecha_y_hora_fin){
+        public function asignar_cita_agente(int $id_cita, int $id_agente, DateTime $fecha_y_hora){
             try{
-                $consulta = $this->db_connect->prerare("CALL asignar_cita_agente(:idid_cita, :id_agente,
-                :fecha_y_hora_fin)");
+                $consulta = $this->db_connect->prepare("CALL asignar_cita_agente(:id_cita, :id_agente,
+                :fecha_y_hora)");
                 $consulta->execute(array(":id_cita"=>$id_cita, ":id_agente"=>$id_agente,
-                ":fecha_y_hora_fin"=>$fecha_y_hora_fin));
+                ":fecha_y_hora"=>$fecha_y_hora->format("Y-m-d H:i")));
             }
             catch(Exception $e){
                 echo $e;

@@ -21,7 +21,7 @@ if (isset($_GET['cargo'])){
                 "Agenda":["./vistas/empleados/agente/agenda.html", "schedule"]
             },
             "Propiedades":{
-                "Catalogo":["./vistas/empleados/agente/propiedades.html", "house"],
+                "Catalogo":["./vistas/empleados/agente/propiedades.php", "house"],
                 "Nueva propiedad":["./vistas/empleados/agente/nueva_propiedad.html", "add"]
             }
         }';

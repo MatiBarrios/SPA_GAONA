@@ -1,5 +1,5 @@
 <?php
-    require_once("../modelo/conexion.php");
+    //require_once("../modelo/conexion.php");
 
     class AgenteInmobiliario extends Conexion{
         public function __construct()
@@ -28,6 +28,19 @@
         public function mostrar_propiedades_inhabilitadas(){
             try{
                 return $this->db_connect->query("CALL leer_propiedades_inhabilitadas()")->fetchAll();
+            }
+            catch(Exception $e){
+                echo $e;
+            }
+        }
+
+        public function mostrar_imagenes_propiedad(int $cod_propiedad){
+            try{
+                $consulta = $this->db_connect->prepare("SELECT * FROM imagen_propiedad WHERE
+                codPropiedad = :cod_propiedad");
+                $consulta->execute(array(":cod_propiedad"=>$cod_propiedad));
+                return $consulta->fetchAll();
+                $consulta->closeCursor();
             }
             catch(Exception $e){
                 echo $e;

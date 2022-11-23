@@ -1,5 +1,5 @@
 <?php
-    require_once("../modelo/conexion.php");
+    //require_once("../modelo/conexion.php");
 
     class EmpleadoDeMarketing extends Conexion{
         public function __construct()
@@ -19,7 +19,7 @@
         public function mostrar_imagenes_propiedad(int $cod_propiedad){
             try{
                 $consulta = $this->db_connect->prepare("SELECT * FROM imagen_propiedad WHERE
-                codPropiedad = :cod_propiedad")->fetchAll();
+                codPropiedad = :cod_propiedad");
                 $consulta->execute(array(":cod_propiedad"=>$cod_propiedad));
                 return $consulta->fetchAll();
             }

@@ -57,7 +57,7 @@
 
         public function generar_reportes(DateTime $fecha_inicio, DateTime $fecha_fin, int $id_tipo){
             try{
-                $consulta = $this->db_connect->prerare("CALL generar_reportes(:inicio, :fin, :id_tipo)");
+                $consulta = $this->db_connect->prepare("CALL generar_reportes(:inicio, :fin, :id_tipo)");
                 $consulta->execute(array(":inicio"=>$fecha_inicio, ":fin"=>$fecha_fin, ":id_tipo"=>$id_tipo));
             }
             catch(Exception $e){
