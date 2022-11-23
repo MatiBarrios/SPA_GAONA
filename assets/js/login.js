@@ -1,3 +1,5 @@
+//Aqui se procesa el json, basicamente se compara si el servidor retorna algo que pueda ser tomado como json
+//en caso de que no se entiende que fallo el inicio de sesion que es para lo que esta hecho y redibuja el jo
 const procesarJSON = (json) =>{
     try{
         json = JSON.parse(json);
@@ -31,7 +33,7 @@ const iniciarSesion = (usuario, contrasenia) =>{
             xhr2.responseType = "json";
             xhr2.send();
             xhr2.onloadend = ()=>{
-                var partes_vista = vista_ver1.split("<!-- Boton navbar -->");
+                var partes_vista = plantilla.split("<!-- Boton navbar -->");
                 vista_ver1 = partes_vista[0];
                 navbar = Object.keys(xhr2.response);
 

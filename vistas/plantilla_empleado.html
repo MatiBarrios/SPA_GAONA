@@ -121,13 +121,14 @@ background: linear-gradient(308deg, rgba(113,212,232,0.5049370089832808) 18%, rg
                     <ul id="info-empleado" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" style="left: -40px; width: 150px; padding: 10px;">
                         <li><p>NOMBRE_EMPLEADO</p></li>
                         <li><p>CARGO_EMPLEADO</p></li>
-                        <li><a class="dropdown-item" href="#" onclick="var xhr = new XMLHttpRequest();
-                            xhr.open('GET', './controlador/ControladorEmpleado.php?cerrar_sesion');
+                        <li><a class="dropdown-item" onclick=\"
+                            var xhr = new XMLHttpRequest();
+                            xhr.open(\'GET\', \'./controlador/ControladorEmpleado.php?cerrar_sesion\');
                             xhr.send();
                             xhr.onloadend = ()=>{
-                                document.getElementById('conteiner').innerHTML = panel_login;
-                            }
-                        ">Cerrar sesión</a></li>
+                                document.getElementById(\'conteiner\').innerHTML = panel_login;
+                            } 
+                            \">Cerrar sesión</a></li>
                     </ul>
                 </li>
             </ul>

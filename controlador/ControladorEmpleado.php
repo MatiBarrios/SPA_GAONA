@@ -8,7 +8,7 @@ if (isset($_GET['cargo'])){
             },
             "Agenda":{
                 "Mostrar agenda":["./vistas/empleados/secretaria/agenda.html", "schedule"],
-                "Agendar cita":["./vistas/empleados/secretaria/agendar_cita.html", "add_box"]
+                "Agendar cita":["./vistas/empleados/secretaria/agendar_cita.php", "add_box"]
             },
             "Solicitudes":{
                 "Solicitudes":["./vistas/empleados/secretaria/solicitudes.html", "list"]

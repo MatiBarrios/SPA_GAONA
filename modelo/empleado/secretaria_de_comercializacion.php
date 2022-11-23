@@ -1,5 +1,5 @@
 <?php
-    require_once("../modelo/conexion.php");
+    //require_once("../modelo/conexion.php");
 
     class SecretariaDeComercializacion extends Conexion{
         public function __construct()
@@ -76,6 +76,24 @@
         public function mostrar_citas(){
             try{
                 return $this->db_connect->query("CALL leer_citas()")->fetchAll();
+            }
+            catch(Exception $e){
+                echo $e;
+            }
+        }
+
+        public function mostrar_citas_no_agendadas(){
+            try{
+                return $this->db_connect->query("CALL leer_citas_no_agendadas()")->fetchAll();
+            }
+            catch(Exception $e){
+                echo $e;
+            }
+        }
+        
+        public function mostrar_agentes(){
+            try{
+                return $this->db_connect->query("select id,nombre,apellido from empleado where idCargo=2")->fetchAll();
             }
             catch(Exception $e){
                 echo $e;

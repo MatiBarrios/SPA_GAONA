@@ -11,7 +11,7 @@
     ?>
     </style>
 </head>
-<button onclick="hola()"></button>
+<!--<button onclick="hola()"></button>-->
 <body onload="if(sesion != false) iniciarSesion(sesion['usuario'], sesion['contrasenia'])">
     <div id="conteiner">
 
@@ -21,6 +21,7 @@
     <script>
         const login = `<?php require_once('./controlador/loginController.php'); ?>`;
         const plantilla = `<?php require_once("./controlador/ControladorEmpleado.php"); ?>`;
+        const panel_login = `<?php require('./vistas/login.html'); ?>`;
         
         function hola(){
             event.preventDefault();

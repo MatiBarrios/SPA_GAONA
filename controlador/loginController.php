@@ -23,5 +23,5 @@ if (isset($_POST['user'])){
 else if (isset($_COOKIE["empleado"])){
     echo $_COOKIE["empleado"];
 }
-else require_once("./vistas/login.html");
+else require("./vistas/login.html");
 ?>
