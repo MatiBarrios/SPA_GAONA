@@ -52,27 +52,29 @@
                 <p class="card-text"><?= $propiedad["direccion"] ?>, <?= $propiedad["localidad"] ?>, <?= $propiedad["provincia"] ?></p>
             </div>
             <!-- aca comienza la imagen -->
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div id="codPropiedad<?= $propiedad["codPropiedad"] ?>" class="carousel slide" data-bs-ride="carousel">
+
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#codPropiedad<?= $propiedad["codPropiedad"] ?>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#codPropiedad<?= $propiedad["codPropiedad"] ?>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#codPropiedad<?= $propiedad["codPropiedad"] ?>" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner"><!-- este es el conteiner -->
-            <?php 
-            $imgsPropiedad = $agentes->mostrar_imagenes_propiedad($propiedad["codPropiedad"]);
-                foreach ($imgsPropiedad as $img){
-                ?>
+
+                <?php 
+                $imgsPropiedad = $agentes->mostrar_imagenes_propiedad($propiedad["codPropiedad"]);
+                    foreach ($imgsPropiedad as $img){
+                    ?>
                     <div class="carousel-item active">
                         <img src="<?= $img['enlace'] ?>" class="d-block w-100" alt="...">
                     </div>
                 <?php } ?>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#codPropiedad<?= $propiedad["codPropiedad"] ?>" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden"></span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#codPropiedad<?= $propiedad["codPropiedad"] ?>" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden"></span>
                 </button>
