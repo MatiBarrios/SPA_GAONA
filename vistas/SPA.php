@@ -11,7 +11,6 @@
     ?>
     </style>
 </head>
-<!--<button onclick="hola()"></button>-->
 <body onload="if(sesion != false) iniciarSesion(sesion['usuario'], sesion['contrasenia'])">
     <div id="conteiner">
 
