@@ -22,16 +22,6 @@
         const login = `<?php require_once('./controlador/loginController.php'); ?>`;
         const plantilla = `<?php require_once("./controlador/ControladorEmpleado.php"); ?>`;
         const panel_login = `<?php require('./vistas/login.html'); ?>`;
-        
-        function hola(){
-            event.preventDefault();
-            xhr = new XMLHttpRequest();
-            xhr.open("GET","./controlador/ControladorEmpleado.php");
-            xhr.send();
-            xhr.onloadend = ()=>{
-                document.getElementById("conteiner").innerHTML = plantilla;
-            }
-        }
     <?php require_once("./assets/js/login.js"); ?>
     </script>
 </footer>
