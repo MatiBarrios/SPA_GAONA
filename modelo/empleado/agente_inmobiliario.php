@@ -47,23 +47,24 @@
             }
         }
 
-        public function registrar_propiedad(int $cod_duenio, int $cod_inquilino, int $id_tipo, int $superficie,
+        public function registrar_propiedad(int $cod_duenio, int $cod_inquilino, string $tipo, int $superficie,
         string $pais, string $provincia, string $localidad, string $barrio, string $direccion, int $cod_postal,
         int $num_banios, int $num_suites, DateTime $fecha_construccion, string $espacios, string $artefactos,
         string $servicios, int $precio_alquiler, int $precio_venta){
             try{
-                $consulta = $this->db_connect->prepare("INSERT INTO propiedad (codDuenio, codInquilino, idTipo,
+                $consulta = $this->db_connect->prepare("INSERT INTO propiedad (codDuenio, codInquilino, tipo,
                 superficie, pais, provincia, localidad, barrio, direccion, codpostal, numBanios, numSuites,
                 fechaConstruccion, espacios, artefactos, servicios, precioAlquiler, precioVenta,
-                fechaRegistrada) VALUES (:cod_duenio, :cod_inquilino, :id_tipo, :superficie, :pais, :provincia,
+                fechaRegistrada) VALUES (:cod_duenio, :cod_inquilino, :tipo, :superficie, :pais, :provincia,
                 :localidad, :barrio, :direccion, :cod_postal, :num_banios, :num_suites, :fecha_construccion,
                 :espacios, :artefactos, :servicios, :precio_alquiler, :precio_venta, NOW())");
                 $consulta->execute(array(":cod_duenio"=>$cod_duenio, ":cod_inquilino"=>$cod_inquilino,
-                ":id_tipo"=>$id_tipo, ":superficie"=>$superficie, ":pais"=>$pais, ":provincia"=>$provincia,
+                ":tipo"=>$tipo, ":superficie"=>$superficie, ":pais"=>$pais, ":provincia"=>$provincia,
                 ":localidad"=>$localidad, ":barrio"=>$barrio, ":direccion"=>$direccion,
                 ":cod_postal"=>$cod_postal, ":num_banios"=>$num_banios, ":num_suites"=>$num_suites,
-                ":fecha_construccion"=>$fecha_construccion, ":espacios"=>$espacios, ":artefactos"=>$artefactos,
-                ":servicios"=>$servicios, ":precio_alquiler"=>$precio_alquiler, ":precio_venta"=>$precio_venta));
+                ":fecha_construccion"=>$fecha_construccion->format("Y-m-d H:i:s"), ":espacios"=>$espacios,
+                ":artefactos"=>$artefactos, ":servicios"=>$servicios, ":precio_alquiler"=>$precio_alquiler,
+                ":precio_venta"=>$precio_venta));
             }
             catch(Exception $e){
                 echo $e;
@@ -101,10 +102,10 @@
             }
         }
 
-        public function actualizar_agenda(int $id_actividad, int $id_estado){
+        public function actualizar_agenda(int $id_actividad, string $estado){
             try{
-                $consulta = $this->db_connect->prepare("UPDATE agenda SET idEstado = :id_estado WHERE id = :id");
-                $consulta->execute(array(":id"=>$id_actividad, ":id_estado"=>$id_estado));
+                $consulta = $this->db_connect->prepare("UPDATE agenda SET estado = :estado WHERE id = :id");
+                $consulta->execute(array(":id"=>$id_actividad, ":estado"=>$estado));
             }
             catch(Exception $e){
                 echo $e;

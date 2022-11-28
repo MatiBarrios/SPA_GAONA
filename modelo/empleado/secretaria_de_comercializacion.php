@@ -93,7 +93,8 @@
         
         public function mostrar_agentes(){
             try{
-                return $this->db_connect->query("select id,nombre,apellido from empleado where idCargo=2")->fetchAll();
+                return $this->db_connect->query("select id,nombre,apellido from empleado where
+                cargo='Agente inmobiliario'")->fetchAll();
             }
             catch(Exception $e){
                 echo $e;

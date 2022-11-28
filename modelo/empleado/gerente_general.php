@@ -45,10 +45,9 @@
 
         public function mostrar_reportes_transacciones(){
             try{
-                $this->db_connect->query("SELECT tipo_caja.nomTipo AS tipoCaja, concepto, monto, fecha,
-                codPropiedad, codCliente, idReporte FROM movimiento_cuenta INNER JOIN relacion_reporte_cuenta
-                ON movimiento_cuenta.id = idMovimientoCuenta INNER JOIN reporte ON reporte.id = idReporte
-                INNER JOIN tipo_caja ON tipo_caja.id = idTipoCaja ORDER BY idReporte")->fetchAll();
+                $this->db_connect->query("SELECT tipoCaja, concepto, monto, fecha, codPropiedad, codCliente,
+                idReporte FROM movimiento_cuenta INNER JOIN relacion_reporte_cuenta ON movimiento_cuenta.id =
+                idMovimientoCuenta INNER JOIN reporte ON reporte.id = idReporte ORDER BY idReporte")->fetchAll();
             }
             catch(Exception $e){
                 echo $e;

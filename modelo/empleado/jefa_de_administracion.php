@@ -30,8 +30,9 @@
 
         public function generar_reporte_transacciones(DateTime $fecha_inicio, DateTime $fecha_fin){
             try{
-                $consulta = $this->db_connect->prerare("CALL generar_reporte_transacciones(:inicio, :fin)");
-                $consulta->execute(array(":inicio"=>$fecha_inicio, ":fin"=>$fecha_fin));
+                $consulta = $this->db_connect->prepare("CALL generar_reporte_transacciones(:inicio, :fin)");
+                $consulta->execute(array(":inicio"=>$fecha_inicio->format("Y-m-d H:i:s"),
+                ":fin"=>$fecha_fin->format("Y-m-d H:i:s")));
             }
             catch(Exception $e){
                 echo $e;
@@ -40,10 +41,9 @@
 
         public function mostrar_reportes_transacciones(){
             try{
-                $this->db_connect->query("SELECT tipo_caja.nomTipo AS tipoCaja, concepto, monto, fecha,
-                codPropiedad, codCliente, idReporte FROM movimiento_cuenta INNER JOIN relacion_reporte_cuenta
-                ON movimiento_cuenta.id = idMovimientoCuenta INNER JOIN reporte ON reporte.id = idReporte
-                INNER JOIN tipo_caja ON tipo_caja.id = idTipoCaja ORDER BY idReporte")->fetchAll();
+                $this->db_connect->query("SELECT tipoCaja, concepto, monto, fecha, codPropiedad, codCliente,
+                idReporte FROM movimiento_cuenta INNER JOIN relacion_reporte_cuenta ON movimiento_cuenta.id =
+                idMovimientoCuenta INNER JOIN reporte ON reporte.id = idReporte ORDER BY idReporte")->fetchAll();
             }
             catch(Exception $e){
                 echo $e;

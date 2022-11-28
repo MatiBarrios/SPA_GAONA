@@ -9,27 +9,6 @@
 </head>
 
 <div class="row" style="text-align:center; display: flex; justify-content: center;">
-  <!--
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Cliente nuevo</h5>
-        <p class="card-text"> <img src="https://cdn-icons-png.flaticon.com/512/3126/3126647.png" alt="" width="100px">
-        </p>
-        <a href="#" class="btn btn-primary">Nuevo</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Cliente de la empresa</h5>
-        <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/993/993891.png" alt="" width="100px"></p>
-        <a href="#" class="btn btn-primary">Nuevo</a>
-      </div>
-    </div>
-  </div>
-  -->
   <!--Main Navigation-->
   <?php
   require_once('../../../modelo/conexion.php');

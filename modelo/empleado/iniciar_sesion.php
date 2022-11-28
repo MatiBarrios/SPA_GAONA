@@ -9,9 +9,8 @@
 
         public function iniciar_sesion($usuario, $contrasenia){
             try{
-                $consulta = $this->db_connect->prepare("SELECT nombre, apellido, cargo.nombreCargo AS cargo
-                FROM empleado INNER JOIN cargo on empleado.idCargo= cargo.id WHERE usuario = :usuario
-                AND contrasenia = MD5(:contrasenia)");
+                $consulta = $this->db_connect->prepare("SELECT nombre, apellido, cargo FROM
+                empleado WHERE usuario = :usuario AND contrasenia = MD5(:contrasenia)");
                 $consulta->execute(array(":usuario"=>$usuario, ":contrasenia"=>$contrasenia));
                 $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
